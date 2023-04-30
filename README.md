@@ -22,10 +22,10 @@
 
 ## 팀원
 
-| myungsun                                                     | yyss99(와이)                                                 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                           myungsun                           |                         yyss99(와이)                         |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/74762699?s=400&u=44a002eb9bfd2be6f192a6f994f9552d081060b8&v=4" width="250" height="250" style="border-radius: 50%;"/> | <img src="https://cdn.discordapp.com/attachments/1099908467956908102/1102102859002163311/Screenshot_20230430-1421342.png" width="250" height="250" style="border-radius: 50%;"/> |
-| [Github Profile](https://github.com/myungsun7782)            | [Github Profile](https://github.com/yy-ss99)                 |
+|      [Github Profile](https://github.com/myungsun7782)       |         [Github Profile](https://github.com/yy-ss99)         |
 
 <br/>
 
