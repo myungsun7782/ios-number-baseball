@@ -1,67 +1,286 @@
-# 숫자 야구 프로젝트
-
-### 제목 
-
-숫자 야구(Number-Baseball)
+# 숫자 야구(Number-Baseball)
 
 <br/>
 
-### 소개 
-
-숫자 야구는 숫자나 단어를 사용하는 게임이며 두 명의 상대가 플레이하는 게임입니다. 저희는 콘솔 창에서 동작하는 숫자 야구 게임을 구현해봤습니다.
-
-<br/>
-
-### 팀원
-
-myungsun, yyss99(와이)
+> 숫자 야구는 숫자를 사용하는 게임이며 두 명의 상대가 플레이하는 게임입니다. 저희는 콘솔 창에서 동작하는 숫자 야구 게임을 구현해봤습니다.
+>
+> 진행 기간: 2023.04.24 ~ 2023.04.28
 
 <br/>
 
-### 타임라인(Commit Message)
+## 목차
 
-![](https://github.com/myungsun7782/ios-number-baseball/blob/main/Images/commit-image.png)
+1. [팀원](#팀원)
+2. [타임라인(Commit Message) - 핵심 Commit](#타임라인(핵심-Commit-위주로-작성))
+3. [Flow Chart](#Flow-Chart)
+4. [실행 화면(기능 설명)](#실행-화면(기능-설명))
+5. [트러블 슈팅(겪었던 문제점과 고민했던 부분)](#트러블-슈팅(겪었던-문제점과-고민했던-부분))
+6. [참고 링크](#참고-링크)
+7. [팀 회고](#팀-회고)
 
-### Flow-Chart
+<br/>
+
+## 팀원
+
+| myungsun                                                     | yyss99(와이)                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="https://avatars.githubusercontent.com/u/74762699?s=400&u=44a002eb9bfd2be6f192a6f994f9552d081060b8&v=4" width="250" height="250" style="border-radius: 50%;"/> | <img src="https://cdn.discordapp.com/attachments/1099908467956908102/1102102859002163311/Screenshot_20230430-1421342.png" width="250" height="250" style="border-radius: 50%;"/> |
+| [Github Profile](https://github.com/myungsun7782)            | [Github Profile](https://github.com/yy-ss99)                 |
+
+<br/>
+
+## 타임라인(핵심 Commit 위주로 작성)
+
+- refactor: checkNumbers 함수에서 기능 분리
+- refactor: showMenu 함수 내에서 if-else if 구문을 switch 문으로 변경
+- feat: 스트라이크 개수에 따른 게임 결과를 반환하는 함수 구현 
+- feat: checkNumbers 함수에서 0과 중복되는 값 제거하는 로직 추가
+- feat: 사용자가 입력한 임의의 수를 검증하는 함수 구현
+
+<br/>
+
+## Flow Chart
 
 **[STEP 1. 순서도(Flow-Chart)]**
 
-<img src="https://cdn.discordapp.com/attachments/1099935066815201300/1100617072758763550/step1.png" style="zoom: 33%;" />
+<img src="https://user-images.githubusercontent.com/74762699/235338235-2605f62a-4902-491a-bb1d-709806f5961e.png" style="zoom: 50%;" />
 
 **[STEP 2. 순서도(Flow-Chart)]**
 
-<img src="https://cdn.discordapp.com/attachments/1099908467956908102/1100374278559518760/step2.drawio_1.png" style="zoom:33%;" />
+<img src="https://user-images.githubusercontent.com/74762699/235338255-35cc321f-b57c-4653-b0e1-315e825d7408.png" style="zoom:50%;" />
 
 <br/>
 
-### 실행 화면(기능 설명)
+## 실행 화면(기능 설명)
 
-<img src="https://github.com/myungsun7782/ios-number-baseball/blob/main/Images/console-image-1.png" alt="console-image-1" style="zoom:33%;" />
+1. 사용자가 게임 메뉴 옵션을 입력하는 실행 화면
+   - 사용자는 1 또는 2를 선택할 수 있고, 1과 2가 아닌 다른 숫자를 입력하거나 문자를 입력할 경우 "입력이 잘못되었습니다."라는 문장을 출력합니다.
 
-<img src="https://github.com/myungsun7782/ios-number-baseball/blob/main/Images/console-image-2.png" alt="console-image-2" style="zoom:33%;" />
+<img src="https://user-images.githubusercontent.com/74762699/235338397-a16497f6-4a53-4d26-a976-e3dd0a0372a1.gif" width="400" height="400" />
 
-- 사용자가 입력한 수와 임의로 생성한 수를 비교한다.
-  - 스트라이크 기준: 사용자가 입력한 숫자와 컴퓨터의 숫자를 비교했을 때 숫자와 자리 위치가 모두 맞는 경우 
-  - 볼 기준: 사용자가 입력한 숫자와 컴퓨터의 숫자를 비교했을 때 숫자만 맞는 경우
-- 사용자가 입력한 값을 검증한다.
-  - 0을 제외한 한 자리 숫자 3개를 띄어쓰기로 구분하여 입력했는 지 확인한다.
+2. 사용자가 세 개의 숫자를 입력하는 실행 화면
+   - 0을 제외한 한 자리 숫자 3개를 띄어쓰기로 구분하여 입력했는 지 확인한 뒤, 올바르게 입력했다면 '스트라이크와 볼 개수'를 출력해서 보여주고, 올바르지 않게 입력했다면 '입력이 잘못되었습니다.'를 출력합니다.
+     - 스트라이크 기준: 사용자가 입력한 숫자와 컴퓨터의 숫자를 비교했을 때 숫자와 자리 위치가 모두 맞는 경우 
+     - 볼 기준: 사용자가 입력한 숫자와 컴퓨터의 숫자를 비교했을 때 숫자만 맞는 경우
+
+<img src="https://user-images.githubusercontent.com/74762699/235338489-1da82164-c467-4fe9-bb29-ad10190254dd.gif" width="400" height="400" />
+
+3. 숫자 야구 게임에서 컴퓨터가 승리하는 경우 실행 화면
+   - 사용자가 남은 기회 안에 스트라이크 개수를 모두 맞추지 못하면 '컴퓨터 승리...!' 를 출력하고 게임을 종료합니다.
+
+<img src="https://user-images.githubusercontent.com/74762699/235338660-09a887e1-69c3-4ce5-9b4f-a3a455a1b09b.gif" width="400" height="400" />
+
+4. 숫자 야구 게임에서 사용자가 승리하는 경우 실행 화면
+   - 사용자가 남은 기회 안에 스트라이크 개수를 모두 맞추면 '사용자 승리!' 를 출력하고 게임을 종료합니다.
+
+<img src="https://user-images.githubusercontent.com/74762699/235338714-840fdb5d-d3b2-4512-b055-13e4da93d4c1.gif" width="400" height="400"/>
 
 <br/>
 
-### 트러블 슈팅
+## 트러블 슈팅(겪었던 문제점과 고민했던 부분)
 
-**[겪었던 문제점과 고민했던 부분]**
+### 함수 분리 
 
-- ‘inputUserGameNumber’ 함수에서 사용자의 게임 숫자를 옵셔널 바인딩을 통해 입력받아야 했습니다. 옵셔널 바인딩 방법에는 if let 바인딩, guard let 바인딩이 있습니다. 처음에는 if let 바인딩을 통해 입력받아서 코드를 작성했었는데, 이렇게 작성하다 보니 if let 구문 안에서 또 조건문을 처리해야 할 상황이 있었는데, 조건문을 넣게 되면 코드 들여쓰기가 2번이 초과가 됐습니다. 그래서 guard let 바인딩을 통해 guard문 아래에 조건문을 추가하여 원하는 로직을 구현할 수 있었습니다. 이 상황에서 guard문의 early exit라는 장점을 몸소 체감할 수 있었습니다.
-- if let 바인딩 또는 guard let 바인딩을 할 때, Optional 타입의 변수(or 상수) 이름과 바인딩을 받는 상수 이름을 어떻게 네이밍을 하면 좋은지 조언을 구하고 싶습니다. 이름을 같게 만들어도 코드는 돌아가지만, 중복되는 이름을 사용하는 것이 조금 찝찝합니다. 그런데, 또 한편으로 다른 이름을 짓자니 어떻게 지어야 할지 고민이 됐습니다.
-- 남은 횟수를 감소시키는 코드 count -= 1을 함수로 따로 뺄지 말지 고민했습니다. 단 한 줄의 코드여서 굳이 함수로 빼야 하나 싶었지만, ‘decreaseCount’라는 함수로 분리함으로써 전체적인 코드의 흐름을 파악할 때 더 쉽게 이해할 수 있었습니다.
-- startGame 함수를 구현할때 게임을 끝난 경우 while문을 어떻게 멈추어야 할지 고민이 많이 되었습니다. 고민끝에 따로 변수를 이용해서 while문을 빠져나가게 만들었습니다.
-- 변수 및 함수 Naming을 확정 짓는 것이 어려웠습니다. 예를 들면, 저는 A라는 이름이 더 직관적인 거 같았는데, 페어는 B라는 이름이 더 직관적이라고 말했습니다. 이 상황에서 저와 페어 둘 다 만족하는 Naming을 사용하는 것이 무척 힘들었습니다.
-- 플로우 차트가 낯설어서 작성하는데 시간이 걸렸습니다.
-- 기능에 대한 플로우 차트를 작성할 때 어느 정도까지 자세하게 표현을 해야하는 지 어려웠습니다.
-- Pull Request를 날리는 과정이 힘들었습니다.
-- 상수를 사용하는 기준에 차이가 있어서 페어와 의견을 조율하기 어려웠습니다.
-- "좋은 코드란 무엇인가?"에 대해서 고민을 했습니다. 좋은 코드라는 것은 사람마다 다르겠지만, 제가 생각하는 좋은 코드는 직관적으로 이해하기 쉽고, 재사용성이 좋은 코드라고 생각을 했습니다.
+1. `사용자의 입력한 유효한 숫자 값을 받은 뒤 게임 결과를 알려주는 함수`를 구현할 때 `볼과 스트라이크 결과를 출력해주는 기능`과 `누가 이겼는 지에 대한 결과를 출력해주는 기능`을 묶어서 생각했습니다. 하지만, 이렇게 하면 하나의 함수에서 너무 많은 기능을 수행하게 됐습니다. 그래서 저희는 `볼과 스트라이크 결과를 출력해주는 기능`과 `누가 이겼는 지에 대한 결과를 출력해주는 기능`을 분리한 뒤, 해당 함수에서 호출하는 형태로 코드를 수정했습니다.
+
+##### 함수 분리 전 코드 
+
+```swift
+func getGameResult(with validNumber: [Int]) -> (Bool, String?) {
+    let (ballCount, strikeCount) = getBallAndStrikeResult(of: validNumber)
+    let isGameOver = isGameFinished(strikeCount: strikeCount)
+    
+    if count >= 0 {
+        print("\(strikeCount) 스트라이크, \(ballCount) 볼")
+    }
+    
+    if strikeCount != 3 {
+        print("남은 기회 : \(count)\n")
+    }
+    
+    if strikeCount == 3 {
+        return (isGameOver, "사용자 승리!")
+    } else if count > 0 {
+        return (isGameOver, nil)
+    } else {
+        return (isGameOver, "컴퓨터 승리...!")
+    }
+}
+```
+
+##### 함수 분리 후 코드
+
+```swift
+func getGameResult(with strikeCount: Int) -> Bool {
+    if strikeCount == 3 {
+        print("사용자 승리!\n")
+        return false
+    } else {
+        print("남은 기회 : \(count)\n")
+    }
+    
+    if count == 0 {
+        print("컴퓨터 승리...!\n")
+        return false
+    }
+    
+    return true
+}
+
+func showBallAndStrikeResultWith(_ ballCount: Int, _ strikeCount: Int) {
+    print("\(strikeCount) 스트라이크, \(ballCount) 볼")
+}
+```
+
+2. `사용자의 숫자 입력 값에 대한 유효성 검사를 하는 함수`에 `유효하지 않은 값이 들어 있는 지를 확인하는 역할`, `한 자리 수로 구성된 숫자 배열을 반환해주는 역할` 그리고 `한 자리 수로 구성된 숫자 배열에서 중복 결과를 반환해주는 역할`이 존재했습니다. 이렇게 하다보니 하나의 함수가 너무 많은 로직과 역할을 가지게 돼서 각 역할을 함수로 나눈 뒤에 `사용자의 숫자 입력 값에 대한 유효성 검사를 하는 함수`에서 호출하도록 했습니다.
+
+##### 함수 분리 전 코드 
+
+```swift
+func checkNumbers(for userInput: String) -> [Int]? {
+    let invaildInput = -1
+    let vaildNumberLength = 1
+    let vaildNumberCount = 3
+    let separatedInput = userInput.split(separator: " ")
+                                  .map { Int($0) ?? invaildInput }
+                                  .filter { $0 != 0 }
+    
+    if separatedInput.contains(invaildInput) ||
+        Set(separatedInput.filter({ String($0).count == vaildNumberLength })).count != vaildNumberCount {
+        return nil
+    }
+    return separatedInput
+}
+```
+
+##### 함수 분리 후 코드 
+
+```swift
+func checkNumbers(for userInput: String) -> [Int]? {
+    let invaildInput = -1
+    let validNumberLength = 1
+    let validNumberCount = 3
+    let separatedInput = userInput.split(separator: " ")
+                                  .map { Int($0) ?? invaildInput }
+                                  .filter { $0 != 0 }
+    
+    if hasInvalidInput(in: separatedInput, invaildInput) ||
+        hasInvalidNumberCount(in: separatedInput, validNumberCount, validNumberLength) {
+        return nil
+    }
+    return separatedInput
+}
+
+func hasInvalidInput(in separatedInput: [Int], _ invalidInput: Int) -> Bool {
+    return separatedInput.contains(invalidInput) ? true : false
+}
+
+func getValidLengthNumbers(in separatedInput: [Int], _ validNumberLength: Int) -> [Int] {
+    return separatedInput.filter { String($0).count == validNumberLength }
+}
+
+func hasInvalidNumberCount(in separatedInput: [Int], _ validNumberCount: Int, _ validNumberLength: Int) -> Bool {
+    let validLengthNumbers = getValidLengthNumbers(in: separatedInput, validNumberLength)
+    return Set(validLengthNumbers).count != validNumberCount ? true : false
+}
+```
+
+<br/>
+
+### if-else 구문을 Switch 구문으로 변경
+
+처음에는 `사용자에게 메뉴를 보여주는 함수`에서 사용자에게 입력받은 메뉴 숫자 번호를 입력 받은 뒤 if-else if-else 구문으로 분기 처리를 하였습니다. 하지만, 사용자가 선택할 수 있는 메뉴 번호는 1 또는 2 라는 한정된 범위였기에 switch 구문에서 각 case를 사용하여 분기를 처리하였습니다. 이렇게 코드를 수정하니 if-else문보다 코드가 더 직관적이고 가독성을 높아졌습니다. Switch문이 이런 장점 외에도 값의 범위, 튜플, 열거형 등 다양한 패턴을 사용할 수 있고, case 내에서 일치하는 값에 대한 변수 또는 상수를 선언할 수 있는 장점이 있습니다.
+
+##### if-else if-else문을 사용한 코드
+
+```swift
+func showMenu() {
+    let startOption = "1"
+    let endOption = "2"
+    var isMenuChoiceOn = true
+    
+    while isMenuChoiceOn {
+        print("1. 게임시작 \n2. 게임종료 \n원하는 기능을 선택해주세요 : ", terminator: "")
+        guard let menuChoice = readLine() else { continue }
+        
+        if menuChoice == startOption {
+            startGame()
+        } else if menuChoice == endOption {
+            break
+        } else {
+            print("입력이 잘못되었습니다.")
+        }
+    }
+}
+```
+
+##### Switch문을 사용한 코드
+
+```swift
+func showMenu() {
+    let startOption = "1"
+    let endOption = "2"
+    var isMenuChoiceOn = true
+    
+    while isMenuChoiceOn {
+        print("1. 게임시작 \n2. 게임종료 \n원하는 기능을 선택해주세요 : ", terminator: "")
+        guard let menuChoice = readLine() else { continue }
+        
+        switch menuChoice {
+        case startOption:
+            startGame()
+        case endOption:
+            isMenuChoiceOn = false
+        default:
+            print("입력이 잘못되었습니다.")
+            continue
+        }
+    }
+}
+```
+
+<br/>
+
+### guard문의 early-exit
+
+`startGame` 함수에서 사용자의 게임 숫자를 옵셔널 바인딩을 통해 입력받아야 했습니다. 옵셔널 바인딩 방법에는 if let 바인딩, guard let 바인딩이 있습니다. 처음에는 if let 바인딩을 통해 입력받아서 코드를 작성했었는데, 이렇게 작성하다 보니 if let 구문 안에서 또 조건문을 처리해야 할 상황이 있었는데, 조건문을 넣게 되면 코드 들여쓰기가 2번이 초과가 됐습니다. 그래서 guard let 바인딩을 통해 guard문 아래에 조건문을 추가하여 원하는 로직을 구현할 수 있었습니다. 이 상황에서 guard문의 early exit라는 장점을 몸소 체감할 수 있었습니다.
+
+##### guard문을 사용한 코드
+
+```swift
+func startGame() {
+    var isGameOn = true
+    while isGameOn {
+        print("\n숫자 3개를 띄어쓰기로 구분하여 입력해주세요.\n중복 숫자는 허용하지 않습니다.\n입력 : ", terminator: "")
+        
+        guard let userInput = readLine(),
+              let validNumber = checkNumbers(for: userInput) else {
+            print("입력이 잘못되었습니다. \n")
+            continue
+        }
+        let (ballCount, strikeCount) = getBallAndStrikeResult(of: validNumber)
+        
+        decreaseCount()
+        showBallAndStrikeResultWith(ballCount, strikeCount)
+        isGameOn = getGameResult(with: strikeCount)
+    }
+    resetGame()
+}
+```
+
+<br/>
+
+## 참고 링크
+
+[Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/)
+
+[Swift API Design Guidelines(한국어 번역)](https://minsone.github.io/swift-internals/api-design-guidelines/)
+
+[Optional Documentation](https://developer.apple.com/documentation/swift/optional)
+
+[Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+
+[Github의 README 파일에 이미지/동영상 올리는 방법](https://ndb796.tistory.com/557)
 
 <br/>
 
